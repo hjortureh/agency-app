@@ -25,10 +25,6 @@ export function ClientRow({ client, dates, dayWidth }: ClientRowProps) {
               <path d="M4 2l4 4-4 4" />
             </svg>
           </span>
-          <span
-            className="client-color"
-            style={{ backgroundColor: client.color }}
-          />
           <span className="client-name">{client.name}</span>
           <span className="client-count">{people.length}</span>
         </div>
@@ -59,7 +55,7 @@ export function ClientRow({ client, dates, dayWidth }: ClientRowProps) {
               <PersonRow
                 key={person.id}
                 person={person}
-                clientColor={client.color}
+                clientColor={client.color || '#6b7280'}
                 dates={dates}
                 dayWidth={dayWidth}
               />

@@ -26,10 +26,10 @@ export const tools: Tool[] = [
   // === CLIENT TOOLS ===
   {
     name: 'create_client',
-    description: 'Create a new client in the current scenario',
+    description: 'Create a new client in the current scenario. Clients do not need colors.',
     parameters: {
       name: { type: 'string', description: 'Client name', required: true },
-      color: { type: 'string', description: 'Hex color (e.g., #3B82F6)', required: false },
+      color: { type: 'string', description: 'Hex color (optional, not used in UI)', required: false },
     },
     execute: (params) => {
       const { name, color } = params as { name: string; color?: string };
@@ -148,15 +148,15 @@ export const tools: Tool[] = [
   // === PROJECT TOOLS ===
   {
     name: 'create_project',
-    description: 'Create a new project under a client',
+    description: 'Create a new project under a client. Projects must have a color.',
     parameters: {
       name: { type: 'string', description: 'Project name', required: true },
       clientId: { type: 'string', description: 'ID of the client this project belongs to', required: true },
-      color: { type: 'string', description: 'Project color', required: false },
+      color: { type: 'string', description: 'Project color (hex code, e.g., #3B82F6)', required: true },
     },
     execute: (params) => {
-      const { name, clientId, color } = params as { name: string; clientId: string; color?: string };
-      if (!name || !clientId) return error('Name and clientId are required');
+      const { name, clientId, color } = params as { name: string; clientId: string; color: string };
+      if (!name || !clientId || !color) return error('Name, clientId, and color are required');
       const project = getStore().createProject(name, clientId, color);
       return success(`Created project "${project.name}" with ID ${project.id}`, project);
     },

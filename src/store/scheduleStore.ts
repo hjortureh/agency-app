@@ -45,8 +45,8 @@ function createInitialScenarios(): { main: Scenario; current: Scenario } {
   const current = createEmptyScenario('Draft', false);
 
   // Add some sample data to main
-  const client1: Client = { id: uuidv4(), name: 'Acme Corp', color: '#3B82F6' };
-  const client2: Client = { id: uuidv4(), name: 'TechStart Inc', color: '#10B981' };
+  const client1: Client = { id: uuidv4(), name: 'Acme Corp' };
+  const client2: Client = { id: uuidv4(), name: 'TechStart Inc' };
 
   main.clients = [client1, client2];
 
@@ -107,7 +107,7 @@ interface ScheduleState {
   deletePerson: (id: string) => void;
 
   // Actions - CRUD Projects
-  createProject: (name: string, clientId: string, color?: string) => Project;
+  createProject: (name: string, clientId: string, color: string) => Project;
   updateProject: (id: string, updates: Partial<Project>) => void;
   deleteProject: (id: string) => void;
 

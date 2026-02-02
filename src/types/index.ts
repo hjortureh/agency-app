@@ -1,7 +1,7 @@
 export interface Client {
   id: string;
   name: string;
-  color: string;
+  color?: string; // Optional - not used in UI
 }
 
 export interface Person {
@@ -15,7 +15,7 @@ export interface Project {
   id: string;
   name: string;
   clientId: string;
-  color?: string;
+  color: string; // Required
 }
 
 export interface Assignment {
