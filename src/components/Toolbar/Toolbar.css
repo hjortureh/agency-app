@@ -1,0 +1,190 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 20px;
+  background: #16162a;
+  border-bottom: 1px solid #2d2d44;
+  flex-shrink: 0;
+}
+
+.toolbar-left,
+.toolbar-center,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-left {
+  flex: 1;
+}
+
+.toolbar-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Scenario Toggle */
+.scenario-toggle {
+  display: flex;
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.toggle-btn:hover {
+  color: #9ca3af;
+}
+
+.toggle-btn.active {
+  background: #2d2d44;
+  color: #e0e0e0;
+}
+
+.toggle-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.toggle-icon.main {
+  background: #10b981;
+}
+
+.toggle-icon.draft {
+  background: #f59e0b;
+}
+
+.change-indicator {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  background: #ef4444;
+  border-radius: 50%;
+}
+
+/* Scenario Actions */
+.scenario-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn.merge {
+  background: #10b981;
+  color: white;
+}
+
+.action-btn.merge:hover {
+  background: #059669;
+}
+
+.action-btn.discard {
+  background: #2d2d44;
+  color: #9ca3af;
+}
+
+.action-btn.discard:hover {
+  background: #3d3d54;
+  color: #e0e0e0;
+}
+
+/* Date Navigation */
+.date-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #2d2d44;
+  border: none;
+  border-radius: 6px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: #3d3d54;
+  color: #e0e0e0;
+}
+
+.today-btn {
+  padding: 8px 14px;
+  background: #2d2d44;
+  border: none;
+  border-radius: 6px;
+  color: #9ca3af;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.today-btn:hover {
+  background: #3d3d54;
+  color: #e0e0e0;
+}
+
+.date-display {
+  font-size: 14px;
+  color: #e0e0e0;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+/* Icon Button */
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #2d2d44;
+  border: none;
+  border-radius: 8px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background: #3b82f6;
+  color: white;
+}
