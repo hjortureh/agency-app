@@ -194,9 +194,9 @@ Backend: http://localhost:3001
 
 ## 8. Update Rules
 
-**Every time you make a meaningful change to the code, logic, or decisions in this project, you must update CONTEXT.md to reflect the new state.**
+**Every time you make a meaningful change to the code, logic, or decisions in this project, you must update CLAUDE.md to reflect the new state.**
 
-Treat CONTEXT.md as the source of truth for project memory. Summarize changes concisely and keep the file current at all times.
+Treat CLAUDE.md as the source of truth for project memory. Summarize changes concisely and keep the file current at all times.
 
 Examples of changes requiring an update:
 - Adding or removing features
