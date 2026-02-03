@@ -8,12 +8,19 @@ interface PersonRowProps {
   clientColor: string;
   dates: Date[];
   dayWidth: number;
+  projectId?: string; // Optional - filter assignments by project
 }
 
-export function PersonRow({ person, clientColor, dates, dayWidth }: PersonRowProps) {
+export function PersonRow({ person, clientColor, dates, dayWidth, projectId }: PersonRowProps) {
   const { getPersonAssignments, getProjectById } = useScheduleStore();
 
-  const assignments = getPersonAssignments(person.id);
+  // Get all assignments for this person
+  let assignments = getPersonAssignments(person.id);
+
+  // If projectId is provided, filter to only show assignments for that project
+  if (projectId) {
+    assignments = assignments.filter(a => a.projectId === projectId);
+  }
 
   return (
     <div className="person-row">

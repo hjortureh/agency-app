@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { addDays, startOfDay } from 'date-fns';
 import { useScheduleStore } from '../../store/scheduleStore';
-import { ClientRow } from './ClientRow';
+import { ProjectRow } from './ProjectRow';
 import { DayHeader } from './DayHeader';
 import './ScheduleView.css';
 
@@ -39,24 +39,29 @@ export function ScheduleView() {
         </div>
       </div>
 
-      {/* Client rows */}
+      {/* Project rows */}
       <div className="schedule-body">
-        {scenario.clients.length === 0 ? (
+        {scenario.projects.length === 0 ? (
           <div className="schedule-empty">
-            <p>No clients yet</p>
+            <p>No projects yet</p>
             <p className="hint">
-              Use the chat to add clients, or click the + button above
+              Click the + button above to add a project
             </p>
           </div>
         ) : (
-          scenario.clients.map((client) => (
-            <ClientRow
-              key={client.id}
-              client={client}
-              dates={dates}
-              dayWidth={dayWidth}
-            />
-          ))
+          scenario.projects.map((project) => {
+            const client = scenario.clients.find(c => c.id === project.clientId);
+            const clientName = client?.name || 'Unknown Client';
+            return (
+              <ProjectRow
+                key={project.id}
+                project={project}
+                clientName={clientName}
+                dates={dates}
+                dayWidth={dayWidth}
+              />
+            );
+          })
         )}
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
 import { useScheduleStore } from '../../store/scheduleStore';
-import { AddClientDialog } from '../Dialog/AddClientDialog';
+import { AddProjectDialog } from '../Dialog/AddProjectDialog';
 import './Toolbar.css';
 
 export function Toolbar() {
-  const [isAddClientOpen, setIsAddClientOpen] = useState(false);
+  const [isAddProjectOpen, setIsAddProjectOpen] = useState(false);
 
   const {
     mainScenario,
@@ -89,8 +89,8 @@ export function Toolbar() {
         <div className="toolbar-right">
           <button
             className="icon-btn"
-            title="Add client"
-            onClick={() => setIsAddClientOpen(true)}
+            title="Add project"
+            onClick={() => setIsAddProjectOpen(true)}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -99,9 +99,9 @@ export function Toolbar() {
         </div>
       </div>
 
-      <AddClientDialog
-        isOpen={isAddClientOpen}
-        onClose={() => setIsAddClientOpen(false)}
+      <AddProjectDialog
+        isOpen={isAddProjectOpen}
+        onClose={() => setIsAddProjectOpen(false)}
       />
     </>
   );
