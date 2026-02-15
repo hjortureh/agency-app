@@ -117,9 +117,7 @@ export function TimelineBar({ assignment, project, dates, dayWidth }: TimelineBa
       />
 
       {/* Content */}
-      <div className="bar-content">
-        <span className="bar-label">{project?.name || 'Unknown Project'}</span>
-      </div>
+      <div className="bar-content" />
 
       {/* Resize handle - end */}
       <div

@@ -115,12 +115,12 @@ The app follows four principles:
 - Scenario toggle (Draft/Main) with merge and discard
 - Claude Haiku chat integration with full agentic loop
 - Add Client dialog (+ button in toolbar)
+- Add Person to Project dialog (+ button on each project row)
 - Sample data: 2 clients, 3 people, 3 projects
 
 ### Incomplete
 
 - No assignments in sample data (timeline bars won't appear until created)
-- No Add Person or Add Project dialogs (only via chat)
 - No click-to-create on timeline
 - No edit/delete dialogs
 - No visual feedback during agent tool execution
@@ -132,9 +132,8 @@ The app follows four principles:
 
 ### Likely Next Features
 
-1. Add Person dialog (from client row context)
-2. Add Project dialog
-3. Click-to-create assignments on timeline
+1. Add Project dialog (from toolbar)
+2. Click-to-create assignments on timeline
 4. Visual feedback when agent calls tools
 5. Persistence via localStorage or backend
 
