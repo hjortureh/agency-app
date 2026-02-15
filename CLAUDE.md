@@ -108,6 +108,9 @@ The app follows four principles:
 ### Complete
 
 - Two-panel layout with chat and schedule
+- Two schedule view modes: "Project" (default) and "Team" with toggle in toolbar
+- Project view: projects as top-level rows, people nested underneath
+- Team view: people as top-level rows, project assignments nested underneath
 - Collapsible client rows with nested people
 - Day columns with month labels, today indicator, weekend shading
 - Week navigation
