@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import type { Person } from '../../types';
 import { useScheduleStore } from '../../store/scheduleStore';
 import { ProjectSubRow } from './ProjectSubRow';
+import { AddProjectToPersonDialog } from '../Dialog/AddProjectToPersonDialog';
 import './TeamMemberRow.css';
 
 interface TeamMemberRowProps {
@@ -11,6 +13,7 @@ interface TeamMemberRowProps {
 
 export function TeamMemberRow({ person, dates, dayWidth }: TeamMemberRowProps) {
   const { expandedPeople, togglePersonExpanded, getActiveScenario } = useScheduleStore();
+  const [isAddProjectOpen, setIsAddProjectOpen] = useState(false);
 
   const isExpanded = expandedPeople.has(person.id);
   const scenario = getActiveScenario();
@@ -56,12 +59,7 @@ export function TeamMemberRow({ person, dates, dayWidth }: TeamMemberRowProps) {
 
       {isExpanded && (
         <div className="team-projects-container">
-          {assignedProjects.length === 0 ? (
-            <div className="no-projects">
-              <span>No projects assigned</span>
-            </div>
-          ) : (
-            assignedProjects.map((project) => {
+          {assignedProjects.map((project) => {
               const client = scenario.clients.find(c => c.id === project.clientId);
               const clientName = client?.name || 'Unknown Client';
               return (
@@ -74,10 +72,33 @@ export function TeamMemberRow({ person, dates, dayWidth }: TeamMemberRowProps) {
                   dayWidth={dayWidth}
                 />
               );
-            })
-          )}
+            })}
+          <div className="add-project-row">
+            <button
+              className="team-add-project-btn"
+              onClick={() => setIsAddProjectOpen(true)}
+              title="Add project to person"
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+            <span className="add-project-label" onClick={() => setIsAddProjectOpen(true)}>Add project</span>
+          </div>
         </div>
       )}
+
+      <AddProjectToPersonDialog
+        isOpen={isAddProjectOpen}
+        onClose={() => {
+          setIsAddProjectOpen(false);
+          // Auto-expand the person row to show the newly added project
+          if (!isExpanded) {
+            togglePersonExpanded(person.id);
+          }
+        }}
+        personId={person.id}
+      />
     </div>
   );
 }

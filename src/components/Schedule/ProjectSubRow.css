@@ -27,6 +27,32 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+  flex: 1;
+}
+
+.project-sub-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: #6b7280;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.project-sub-row:hover .project-sub-remove-btn {
+  opacity: 1;
+}
+
+.project-sub-remove-btn:hover {
+  background: #2d2d44;
+  color: #ef4444;
 }
 
 .project-sub-client-label {

@@ -119,6 +119,9 @@ The app follows four principles:
 - Claude Haiku chat integration with full agentic loop
 - Add Client dialog (+ button in toolbar)
 - Add Person to Project dialog (+ button on each project row)
+- Add Project to Person dialog (+ button on each team member row in Team view)
+- Remove person from project (X button on person sub-row in Project view)
+- Remove project from person (X button on project sub-row in Team view)
 - Sample data: 2 clients, 3 people, 3 projects
 
 ### Incomplete
