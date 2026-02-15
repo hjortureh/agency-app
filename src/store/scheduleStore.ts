@@ -78,7 +78,9 @@ interface ScheduleState {
   activeScenarioId: string; // which one is being viewed/edited
 
   // UI State
+  scheduleViewMode: 'project' | 'team';
   expandedClients: Set<string>;
+  expandedPeople: Set<string>;
   viewStartDate: Date;
   daysToShow: number;
 
@@ -92,7 +94,9 @@ interface ScheduleState {
   discardCurrentScenario: () => void;
 
   // Actions - View
+  setScheduleViewMode: (mode: 'project' | 'team') => void;
   toggleClientExpanded: (clientId: string) => void;
+  togglePersonExpanded: (personId: string) => void;
   setViewStartDate: (date: Date) => void;
   navigateDays: (delta: number) => void;
 
@@ -137,7 +141,9 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
   currentScenario: initialScenarios.current,
   activeScenarioId: initialScenarios.current.id,
 
+  scheduleViewMode: 'project',
   expandedClients: new Set<string>(),
+  expandedPeople: new Set<string>(),
   viewStartDate: new Date(),
   daysToShow: 28, // 4 weeks
 
@@ -171,6 +177,8 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
   })),
 
   // View actions
+  setScheduleViewMode: (mode) => set({ scheduleViewMode: mode }),
+
   toggleClientExpanded: (clientId) => set((state) => {
     const newExpanded = new Set(state.expandedClients);
     if (newExpanded.has(clientId)) {
@@ -179,6 +187,16 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
       newExpanded.add(clientId);
     }
     return { expandedClients: newExpanded };
+  }),
+
+  togglePersonExpanded: (personId) => set((state) => {
+    const newExpanded = new Set(state.expandedPeople);
+    if (newExpanded.has(personId)) {
+      newExpanded.delete(personId);
+    } else {
+      newExpanded.add(personId);
+    }
+    return { expandedPeople: newExpanded };
   }),
 
   setViewStartDate: (date) => set({ viewStartDate: date }),
